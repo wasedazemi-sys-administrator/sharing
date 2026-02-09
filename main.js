@@ -14,9 +14,18 @@ async function share() {
   try {
     const profile = await liff.getProfile();
     const userId = profile.userId;
-
-    // 紹介URL
-    const referralUrl = `https://example.com/trial?ref=${userId}`;
+    const context = liff.getContext();
+    const botId = context.botId;
+    
+    const LINE_URL_MAP = {
+      "Ud4d5125c3a20bdf1f2d49e41b6696b58":
+        "https://lin.ee/熊谷校URL"
+    };
+    
+    const baseLineUrl =
+      LINE_URL_MAP[botId] || `https://example.com/trial`;
+    
+    const referralUrl = `${baseLineUrl}?ref=${userId}`;
 
     const flexMessage = {
       type: "flex",
