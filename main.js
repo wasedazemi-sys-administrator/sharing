@@ -23,7 +23,7 @@ async function share() {
         type: "bubble",
         hero: {
           type: "image",
-          url: "https://example.com/campaign.jpg", // ←キャンペーン画像
+          url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png", // ←キャンペーン画像
           size: "full",
           aspectRatio: "20:13",
           aspectMode: "cover"
