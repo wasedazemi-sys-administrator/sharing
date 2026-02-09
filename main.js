@@ -80,6 +80,9 @@ async function share() {
 
     if (result) {
       showToast("🎉 紹介メッセージを送信しました！");
+      setTimeout(() => {
+        liff.closeWindow(); // ← トークに戻る
+      }, 1500);
     }
 
   } catch (e) {
