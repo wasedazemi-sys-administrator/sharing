@@ -6,6 +6,8 @@ async function initLiff() {
   if (!liff.isLoggedIn()) {
     liff.login();
   }
+  const context = liff.getContext();
+  console.log(context.botId);
 }
 
 async function share() {
