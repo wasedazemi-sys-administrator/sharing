@@ -5,21 +5,114 @@
   <title>友だち紹介</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+
   <!-- LIFF SDK -->
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans JP', sans-serif;
+      background: linear-gradient(135deg, #06c755, #00a8ff);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px 25px;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      text-align: center;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .icon {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 10px 0 15px;
+      font-weight: 700;
+      color: #06c755;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .share-btn {
+      background: #06c755;
+      border: none;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 14px 20px;
+      border-radius: 50px;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(6,199,85,0.4);
+    }
+
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(6,199,85,0.5);
+    }
+
+    .share-btn:active {
+      transform: translateY(1px);
+    }
+
+    .note {
+      font-size: 12px;
+      margin-top: 18px;
+      color: #777;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
-  <h2>📣 友だち紹介</h2>
 
-  <p>
-    この塾を友だちに紹介できます。<br>
-    LINEでそのまま送れます。
-  </p>
+  <div class="card">
+    <div class="icon">🎁</div>
+    <h2>友だち紹介キャンペーン</h2>
 
-  <button id="shareBtn">
-    友だちに紹介する
-  </button>
+    <p>
+      この塾をLINEで友だちに紹介できます。<br>
+      下のボタンから、そのまま送信できます。
+    </p>
+
+    <button class="share-btn" id="shareBtn">
+      LINEで紹介する
+    </button>
+
+    <div class="note">
+      ※LINEアプリ内でご利用ください
+    </div>
+  </div>
 
   <script src="./main.js"></script>
+
 </body>
 </html>
