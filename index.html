@@ -1,71 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>友人紹介</title>
-    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <meta charset="UTF-8" />
+  <title>友だち紹介</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- LIFF SDK -->
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </head>
 <body>
-    <div id="status" style="padding: 20px; text-align: center;">読み込み中...</div>
+  <h2>📣 友だち紹介</h2>
 
-    <script>
-        liff.init({ liffId: "2009089777-y88yoo8i" })
-            .then(() => {
-                document.getElementById('status').innerText = "初期化成功。ログインチェック中...";
-                
-                if (!liff.isLoggedIn()) {
-                    liff.login();
-                } else {
-                    document.getElementById('status').innerText = "ログイン中。シェア画面を起動します...";
-                    
-                    // 権限チェック
-                    if (liff.isApiAvailable('shareTargetPicker')) {
-                        liff.shareTargetPicker([
-                            {
-                                "type": "flex",
-                                "altText": "お友達から塾の招待状が届いています",
-                                "contents": {
-                                    "type": "bubble",
-                                    "body": {
-                                        "type": "box",
-                                        "layout": "vertical",
-                                        "contents": [
-                                            { "type": "text", "text": "友人紹介特典", "weight": "bold", "color": "#1DB446", "size": "sm" },
-                                            { "type": "text", "text": "個別指導〇〇塾へようこそ！", "weight": "bold", "size": "xl", "margin": "md" },
-                                            { "type": "text", "text": "このメッセージを受け取った方限定で、入塾金無料＋2回分の無料体験をプレゼントします。", "wrap": true, "margin": "md" },
-                                            {
-                                                "type": "button",
-                                                "style": "primary",
-                                                "color": "#1DB446",
-                                                "margin": "xl",
-                                                "action": { "type": "uri", "label": "無料体験を申し込む", "uri": "https://塾の申込URL" }
-                                            }
-                                        ]
-                                    }
-                                }
-                            }
-                        ]).then((res) => {
-                            if (res) {
-                                alert("紹介メッセージを送信しました！");
-                                liff.closeWindow();
-                            } else {
-                                // ユーザーがキャンセルした場合
-                                liff.closeWindow();
-                            }
-                        }).catch((error) => {
-                            alert("シェア失敗: " + error.message);
-                        });
-                    } else {
-                        // 権限がない場合ここに来る
-                        document.getElementById('status').innerHTML = 
-                            "<b style='color:red;'>エラー：shareTargetPicker 権限がありません。</b><br>DevelopersコンソールのScopesを確認してください。";
-                    }
-                }
-            })
-            .catch((err) => {
-                document.getElementById('status').innerText = "LIFF初期化エラー: " + err;
-            });
-    </script>
+  <p>
+    この塾を友だちに紹介できます。<br>
+    LINEでそのまま送れます。
+  </p>
+
+  <button id="shareBtn">
+    友だちに紹介する
+  </button>
+
+  <script src="./main.js"></script>
 </body>
 </html>
