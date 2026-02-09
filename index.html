@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>友人紹介</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+    <script>
+        liff.init({ liffId: "あなたのLIFF_ID" }).then(() => {
+            if (!liff.isLoggedIn()) {
+                liff.login();
+            } else {
+                // シェアターゲットピッカーを起動
+                liff.shareTargetPicker([
+                    {
+                        "type": "flex",
+                        "altText": "お友達から塾の招待状が届いています",
+                        "contents": {
+                            "type": "bubble",
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    { "type": "text", "text": "友人紹介特典", "weight": "bold", "color": "#1DB446", "size": "sm" },
+                                    { "type": "text", "text": "個別指導〇〇塾へようこそ！", "weight": "bold", "size": "xl", "margin": "md" },
+                                    { "type": "text", "text": "このメッセージを受け取った方限定で、入塾金無料＋2回分の無料体験をプレゼントします。", "wrap": true, "margin": "md" },
+                                    {
+                                        "type": "button",
+                                        "style": "primary",
+                                        "color": "#1DB446",
+                                        "margin": "xl",
+                                        "action": { "type": "uri", "label": "無料体験を申し込む", "uri": "https://塾の申込URL" }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]).then((res) => {
+                    if (res) {
+                        alert("紹介メッセージを送信しました！");
+                        liff.closeWindow();
+                    } else {
+                        liff.closeWindow();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
