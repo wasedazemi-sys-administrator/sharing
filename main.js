@@ -8,7 +8,6 @@ async function initLiff() {
   }
 }
 
-/*
 async function share() {
   try {
     const profile = await liff.getProfile();
@@ -87,31 +86,7 @@ async function share() {
     console.error(e);
     showToast("⚠️ エラーが発生しました");
   }
-}*/
-
-async function share() {
-  try {
-    if (!liff.isApiAvailable("shareTargetPicker")) {
-      alert("この環境では共有できません");
-      return;
-    }
-
-    const result = await liff.shareTargetPicker([
-      {
-        type: "text",
-        text: "テスト送信です"
-      }
-    ]);
-
-    if (result) {
-      alert("送信成功");
-    }
-  } catch (e) {
-    console.error(e);
-    alert(e.message);
-  }
 }
-
 
 function showToast(message) {
   const toast = document.createElement("div");
