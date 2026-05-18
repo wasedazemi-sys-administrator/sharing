@@ -2,42 +2,44 @@
 // ※GitHub公開時は、ここを直書きせず環境変数から注入されるようにします
 const LIFF_ID = "/*liff_id_placeholder*/";
 
+let imgBaseUrl = "https://lh3.googleusercontent.com/d/";
+
 // 6種類のコンテンツ設定（バナー画像とテキストの定義）
 const CONTENT_SETTINGS = {
     test_preparation: {
         title: "テスト対策講座",
         text: "ワセダで定期テスト対策！\n全講座無料でご招待！",
-        image: "https://example.com/images/test_prep.png",
-        link: "https://wasedazemi-highschool.com/class_schedule/test_preparation?utm_source=social&utm_medium=line_official&utm_campaign=2026_first_semester_final_exam"
+        image: imgBaseUrl + "1lELtXTftTvq9nMPXTWYcwvdYdHWbp0Ln",
+        link: "https://wasedazemi-highschool.com/class_schedule/test_preparation?utm_source=social&utm_medium=line_official&utm_campaign=2026_first_semester_final_exam"        
     },
     spring_seminar: {
         title: "春期講習",
         text: "ワセダでスタートダッシュ！\n春期講習、全講座無料！",
-        image: "https://example.com/images/spring.png",
+        image: imgBaseUrl + "1ieIAKMnQcEDDIfdj-OYMeDs6_Vk3C6SV",
         link: "https://wasedazemi-highschool.com/class_schedule/seminar?utm_source=social&utm_medium=line_official&utm_campaign=2027spring"
     },
     summer_seminar: {
         title: "夏期講習",
         text: "ワセダでこの夏最強の自分へ！目指せ大学現役合格！",
-        image: "https://example.com/images/summer.png",
+        image: imgBaseUrl + "1_LDcQKTwVaPoqfvoUJZoup8i_Y96uiad",
         link: "https://wasedazemi-highschool.com/class_schedule/seminar?utm_source=social&utm_medium=line_official&utm_campaign=2026summer"
     },
     winter_seminar: {
         title: "冬期講習",
         text: "ワセダで熱い冬を！冬期講習で実力を引き上げよう！",
-        image: "",
+        image: imgBaseUrl + "1kZ_i3UyEPsY_n_49XnkZoo4rklVmyV7Q",
         link: "https://wasedazemi-highschool.com/class_schedule/seminar?utm_source=social&utm_medium=line_official&utm_campaign=2026winter"
     },
     regular_class: {
         title: "本科授業",
         text: "ワセダの授業を無料体験！一緒に大学現役合格を目指せ！",
-        image: "https://example.com/images/regular.png",
+        image: imgBaseUrl + "1s__heVe0m9WQ469BuZ057VC1tJShFGqw",
         link: "https://wasedazemi-highschool.com/class_schedule/regular?utm_source=social&utm_medium=line_official&utm_campaign=2026trial"
     },
     event: {
         title: "特別イベント",
         text: "ワセダで特別イベント開催！友だちと一緒に参加しよう！",
-        image: "https://example.com/images/event.png",
+        image: imgBaseUrl + "1SSLtPsj4HDObgWfpI8jpAvIiZH1II6p7",
         link: "https://wasedazemi-highschool.com/event/twelfth_grade_special_event?utm_source=social&utm_medium=line_official&utm_campaign=2026_twelfth_grade_special_event"
     }
 };
