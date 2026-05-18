@@ -4,41 +4,41 @@ const LIFF_ID = "/*liff_id_placeholder*/";
 
 // 6種類のコンテンツ設定（バナー画像とテキストの定義）
 const CONTENT_SETTINGS = {
-    test_prep: {
+    test_preparation: {
         title: "テスト対策講座",
-        text: "定期テスト対策に！友だち紹介で限定講座が無料になります。",
+        text: "ワセダで定期テスト対策！\n全講座無料でご招待！",
         image: "https://example.com/images/test_prep.png",
-        link: "https://example.com/lp/test_prep"
+        link: "https://wasedazemi-highschool.com/class_schedule/test_preparation?utm_source=social&utm_medium=line_official&utm_campaign=2026_first_semester_final_exam"
     },
-    spring_course: {
+    spring_seminar: {
         title: "春期講習",
-        text: "新学年のスタートダッシュ！春期講習のご案内です。",
+        text: "ワセダでスタートダッシュ！\n春期講習、全講座無料！",
         image: "https://example.com/images/spring.png",
-        link: "https://example.com/lp/spring"
+        link: "https://wasedazemi-highschool.com/class_schedule/seminar?utm_source=social&utm_medium=line_official&utm_campaign=2027spring"
     },
-    summer_course: {
+    summer_seminar: {
         title: "夏期講習",
-        text: "夏を制する者は受験を制す！夏期講習の受付開始。",
+        text: "ワセダでこの夏最強の自分へ！目指せ大学現役合格！",
         image: "https://example.com/images/summer.png",
-        link: "https://example.com/lp/summer"
+        link: "https://wasedazemi-highschool.com/class_schedule/seminar?utm_source=social&utm_medium=line_official&utm_campaign=2026summer"
     },
-    winter_course: {
+    winter_seminar: {
         title: "冬期講習",
-        text: "ラストスパート！冬期講習で実力を引き上げよう。",
-        image: "https://example.com/images/winter.png",
-        link: "https://example.com/lp/winter"
+        text: "ワセダで熱い冬を！冬期講習で実力を引き上げよう！",
+        image: "",
+        link: "https://wasedazemi-highschool.com/class_schedule/seminar?utm_source=social&utm_medium=line_official&utm_campaign=2026winter"
     },
     regular_class: {
         title: "本科授業",
-        text: "通常授業の無料体験実施中！一緒に合格を目指そう。",
+        text: "ワセダの授業を無料体験！一緒に大学現役合格を目指せ！",
         image: "https://example.com/images/regular.png",
-        link: "https://example.com/lp/regular"
+        link: "https://wasedazemi-highschool.com/class_schedule/regular?utm_source=social&utm_medium=line_official&utm_campaign=2026trial"
     },
     event: {
         title: "特別イベント",
-        text: "参加無料の特別イベント開催！友だちと一緒に参加しよう。",
+        text: "ワセダで特別イベント開催！友だちと一緒に参加しよう！",
         image: "https://example.com/images/event.png",
-        link: "https://example.com/lp/event"
+        link: "https://wasedazemi-highschool.com/event/twelfth_grade_special_event?utm_source=social&utm_medium=line_official&utm_campaign=2026_twelfth_grade_special_event"
     }
 };
 
@@ -88,10 +88,9 @@ function sendShare() {
         return;
     }
 
-    // 動的に作成するFlexメッセージの構造
     const flexMessage = {
         type: "flex",
-        altText: `友だちから「${currentContent.title}」の紹介が届きました！`,
+        altText: `生徒第一主義：早稲田ゼミから「${currentContent.title}」の紹介が届きました！`,
         contents: {
             type: "bubble",
             hero: {
@@ -99,7 +98,13 @@ function sendShare() {
                 url: currentContent.image,
                 size: "full",
                 aspectRatio: "20:13",
-                aspectMode: "cover"
+                aspectMode: "cover",
+                // 👇 ここから追加：画像タップ時の動作を設定
+                action: {
+                    type: "uri",
+                    uri: currentContent.link
+                }
+                // 👆 ここまで追加
             },
             body: {
                 type: "box",
@@ -107,15 +112,27 @@ function sendShare() {
                 contents: [
                     {
                         type: "text",
+                        text: "生徒第一主義",
+                        size: "sm",
+                        color: "#005CB9",
+                        weight: "bold",
+                        margin: "none"
+                    },
+                    {
+                        type: "text",
                         text: currentContent.title,
                         weight: "bold",
-                        size: "xl"
+                        size: "xl",
+                        color: "#005CB9",
+                        margin: "xs"
                     },
                     {
                         type: "text",
                         text: currentContent.text,
                         margin: "md",
-                        wrap: true
+                        wrap: true,
+                        lineSpacing: "4px",
+                        size: "md"
                     }
                 ]
             },
@@ -138,16 +155,11 @@ function sendShare() {
         }
     };
 
-    // ターゲットピッカーを表示
     liff.shareTargetPicker([flexMessage])
         .then((res) => {
             if (res) {
-                // 送信成功（送信先を選んで送信した時）
                 alert("紹介メッセージを送信しました！");
-                liff.closeWindow(); // ミニアプリを閉じる
-            } else {
-                // ユーザーがシェアをキャンセルした時
-                console.log("シェアがキャンセルされました");
+                liff.closeWindow(); 
             }
         })
         .catch((err) => {
