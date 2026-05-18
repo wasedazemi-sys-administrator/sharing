@@ -1,6 +1,6 @@
 // 本番環境（Netlify等）やローカルサーバーからLIFF_IDを取得する想定
 // ※GitHub公開時は、ここを直書きせず環境変数から注入されるようにします
-const LIFF_ID = window.env?.LIFF_ID || "YOUR_LIFF_ID_本番用（※公開時は注意）";
+const LIFF_ID = "/*liff_id_placeholder*/";
 
 // 6種類のコンテンツ設定（バナー画像とテキストの定義）
 const CONTENT_SETTINGS = {
