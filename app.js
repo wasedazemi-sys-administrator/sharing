@@ -127,7 +127,7 @@ function sendShare() {
                 contents: [
                     {
                         type: "text",
-                        text: "生徒第一主義",
+                        text: "Ｗ早稲田ゼミの",
                         size: "sm",
                         color: "#005CB9",
                         weight: "bold",
