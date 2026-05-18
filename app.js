@@ -67,9 +67,22 @@ function analyzeUrl() {
     const urlParams = new URLSearchParams(window.location.search);
     const contentKey = urlParams.get('content') || 'regular_class'; // 指定がない場合はデフォルトで本科授業に
 
-    currentContent = CONTENT_SETTINGS[contentKey];
+    // 元の設定データを安全にコピー（直接書き換えて混ざるのを防ぐため）
+    if (CONTENT_SETTINGS[contentKey]) {
+        currentContent = { ...CONTENT_SETTINGS[contentKey] };
+    }
 
     if (currentContent) {
+        const customText = urlParams.get('text');
+        if (customText) {
+            try {
+                // 日本語のエンコードを元に戻して改行コード（\n）にも対応させる
+                currentContent.text = decodeURIComponent(customText).replace(/\\n/g, '\n');
+            } catch (e) {
+                console.error("テキストのデコードに失敗しました", e);
+                // 失敗した場合はCONTENT_SETTINGSのデフォルトテキストがそのまま保持されます
+            }
+        }
         // 画面の表示を切り替え
         document.getElementById("title").innerText = `${currentContent.title} の紹介`;
         document.getElementById("subtitle").innerText = "下のボタンからLINEの友だちに紹介カードを送れます";
