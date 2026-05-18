@@ -32,13 +32,13 @@ const CONTENT_SETTINGS = {
     },
     regular_class: {
         title: "本科授業",
-        text: "ワセダの授業を無料体験！一緒に大学現役合格を目指せ！",
+        text: "ワセダの授業を無料体験！\n一緒に大学現役合格を目指せ！",
         image: imgBaseUrl + "1s__heVe0m9WQ469BuZ057VC1tJShFGqw",
         link: "https://wasedazemi-highschool.com/class_schedule/regular?utm_source=social&utm_medium=line_official&utm_campaign=2026trial"
     },
     event: {
         title: "特別イベント",
-        text: "ワセダで特別イベント開催！友だちと一緒に参加しよう！",
+        text: "ワセダで特別イベント開催！\n友だちと一緒に参加しよう！",
         image: imgBaseUrl + "1SSLtPsj4HDObgWfpI8jpAvIiZH1II6p7",
         link: "https://wasedazemi-highschool.com/event/twelfth_grade_special_event?utm_source=social&utm_medium=line_official&utm_campaign=2026_twelfth_grade_special_event"
     }
