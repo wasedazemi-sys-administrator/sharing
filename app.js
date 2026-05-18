@@ -99,7 +99,7 @@ function sendShare() {
                 type: "image",
                 url: currentContent.image,
                 size: "full",
-                aspectRatio: "20:13",
+                aspectRatio: "1:1",
                 aspectMode: "cover",
                 // 👇 ここから追加：画像タップ時の動作を設定
                 action: {
