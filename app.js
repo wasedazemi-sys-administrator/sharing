@@ -85,7 +85,7 @@ function analyzeUrl() {
         }
 
         const customImgId = urlParams.get('img_id');
-        if(customImgid){
+        if(customImgId){
             currentContent.image = customImgId;
         }
         
