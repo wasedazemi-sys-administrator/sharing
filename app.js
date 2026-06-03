@@ -47,6 +47,7 @@ const CONTENT_SETTINGS = {
         text: "ワセダの採用情報掲載！\n一緒に生徒を育てよう！",
         image:"https://recruit.wasedazemi.com/wp-content/themes/waseda/img/recruit_midcareer.jpg",
         link: "https://recruit.wasedazemi.com/"
+    },
 };
 
 let currentContent = null;
