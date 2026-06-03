@@ -9,39 +9,44 @@ const CONTENT_SETTINGS = {
     test_preparation: {
         title: "テスト対策講座",
         text: "ワセダで定期テスト対策！\n全講座無料でご招待！",
-        image: "1lELtXTftTvq9nMPXTWYcwvdYdHWbp0Ln",
+        image: imgBaseUrl + "1lELtXTftTvq9nMPXTWYcwvdYdHWbp0Ln",
         link: "https://wasedazemi-highschool.com/class_schedule/test_preparation?utm_source=social&utm_medium=line_official&utm_campaign=2026_first_semester_final_exam"        
     },
     spring_seminar: {
         title: "春期講習",
         text: "ワセダでスタートダッシュ！\n春期講習、全講座無料！",
-        image: "1ieIAKMnQcEDDIfdj-OYMeDs6_Vk3C6SV",
+        image: imgBaseUrl + "1ieIAKMnQcEDDIfdj-OYMeDs6_Vk3C6SV",
         link: "https://wasedazemi-highschool.com/class_schedule/seminar?utm_source=social&utm_medium=line_official&utm_campaign=2027spring"
     },
     summer_seminar: {
         title: "夏期講習",
         text: "ワセダでこの夏最強の自分へ！目指せ大学現役合格！",
-        image: "1_LDcQKTwVaPoqfvoUJZoup8i_Y96uiad",
+        image: imgBaseUrl + "1_LDcQKTwVaPoqfvoUJZoup8i_Y96uiad",
         link: "https://wasedazemi-highschool.com/class_schedule/seminar?utm_source=social&utm_medium=line_official&utm_campaign=2026summer"
     },
     winter_seminar: {
         title: "冬期講習",
         text: "ワセダで熱い冬を！冬期講習で実力を引き上げよう！",
-        image: "1kZ_i3UyEPsY_n_49XnkZoo4rklVmyV7Q",
+        image: imgBaseUrl + "1kZ_i3UyEPsY_n_49XnkZoo4rklVmyV7Q",
         link: "https://wasedazemi-highschool.com/class_schedule/seminar?utm_source=social&utm_medium=line_official&utm_campaign=2026winter"
     },
     regular_class: {
         title: "本科授業",
         text: "ワセダの授業を無料体験！\n一緒に大学現役合格を目指せ！",
-        image: "1s__heVe0m9WQ469BuZ057VC1tJShFGqw",
+        image: imgBaseUrl + "1s__heVe0m9WQ469BuZ057VC1tJShFGqw",
         link: "https://wasedazemi-highschool.com/class_schedule/regular?utm_source=social&utm_medium=line_official&utm_campaign=2026trial"
     },
     event: {
         title: "特別イベント",
         text: "ワセダで特別イベント開催！\n友だちと一緒に参加しよう！",
-        image: "1SSLtPsj4HDObgWfpI8jpAvIiZH1II6p7",
+        image: imgBaseUrl + "1SSLtPsj4HDObgWfpI8jpAvIiZH1II6p7",
         link: "https://wasedazemi-highschool.com/event/twelfth_grade_special_event?utm_source=social&utm_medium=line_official&utm_campaign=2026_twelfth_grade_special_event"
-    }
+    },
+    recruit: {
+        title: "採用情報",
+        text: "ワセダの採用情報掲載！\n一緒に生徒を育てよう！",
+        image:"https://recruit.wasedazemi.com/wp-content/themes/waseda/img/recruit_midcareer.jpg",
+        link: "https://recruit.wasedazemi.com/"
 };
 
 let currentContent = null;
@@ -116,7 +121,7 @@ function sendShare() {
             type: "bubble",
             hero: {
                 type: "image",
-                url: imgBaseUrl + currentContent.image,
+                url: currentContent.image,
                 size: "full",
                 aspectRatio: "1:1",
                 aspectMode: "cover",
