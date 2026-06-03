@@ -92,7 +92,7 @@ function analyzeUrl() {
 
         const customImgId = urlParams.get('img_id');
         if(customImgId){
-            currentContent.image = customImgId;
+            currentContent.image =imgBaseUrl +  customImgId;
         }
         
         // 画面の表示を切り替え
