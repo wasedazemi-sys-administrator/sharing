@@ -42,6 +42,12 @@ const CONTENT_SETTINGS = {
         image: imgBaseUrl + "1SSLtPsj4HDObgWfpI8jpAvIiZH1II6p7",
         link: "https://wasedazemi-highschool.com/event/twelfth_grade_special_event?utm_source=social&utm_medium=line_official&utm_campaign=2026_twelfth_grade_special_event"
     },
+    freshman_event: {
+        title: "新高1進学特別イベント",
+        text: "ワセダで特別イベント開催！\n友だちと一緒に参加しよう！",
+        image: imgBaseUrl + "1SSLtPsj4HDObgWfpI8jpAvIiZH1II6p7",
+        link: "https://wasedazemi-highschool.com/event/high_school_freshman?utm_source=social&utm_medium=line_official&utm_campaign=2026_twelfth_grade_special_event"
+    },
     recruit: {
         title: "採用情報",
         text: "ワセダの採用情報掲載！\n一緒に生徒を育てよう！",
